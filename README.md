@@ -1,6 +1,9 @@
 # MobileAppAutomationTest
 
 [![CircleCI](https://circleci.com/gh/JoaoGFarias/MobileAppAutomationTest/tree/master.svg?style=svg)](https://circleci.com/gh/JoaoGFarias/MobileAppAutomationTest/tree/master)
+[![JaCoCo](http://circle-jacoco-badge.herokuapp.com/line?coverage-file=reports/coverage/debug/report.xml&author=JoaoGFarias&project=MobileAppAutomationTest&circle-token=accb753e4d2253e4a2678f1ca947bad3d801dfb2&coverage-file=reports/coverage/debug/report.xml)](http://circle-jacoco-badge.herokuapp.com/report?author=:author&project=:project&circle-token=:circle-token) 
+[![JaCoCo](http://circle-jacoco-badge.herokuapp.com/branch?coverage-file=reports/coverage/debug/report.xml&author=JoaoGFarias&project=MobileAppAutomationTest&circle-token=accb753e4d2253e4a2678f1ca947bad3d801dfb2&coverage-file=reports/coverage/debug/report.xml)](http://circle-jacoco-badge.herokuapp.com/report?author=:author&project=:project&circle-token=:circle-token) 
+[![JaCoCo](http://circle-jacoco-badge.herokuapp.com/complexity?coverage-file=reports/coverage/debug/report.xml&author=JoaoGFarias&project=MobileAppAutomationTest&circle-token=accb753e4d2253e4a2678f1ca947bad3d801dfb2&coverage-file=reports/coverage/debug/report.xml)](http://circle-jacoco-badge.herokuapp.com/report?author=:author&project=:project&circle-token=:circle-token)
 
 Dear candidate,
 
