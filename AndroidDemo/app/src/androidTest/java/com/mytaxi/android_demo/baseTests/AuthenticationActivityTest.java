@@ -8,6 +8,7 @@ import com.mytaxi.android_demo.activities.MainActivity;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -39,7 +40,7 @@ public abstract class AuthenticationActivityTest {
     }
 
     protected void selectDriverNamed(String driverName, ActivityTestRule<MainActivity> activityRule) {
-        searchOnAllWindows(getViewInteraction(driverName), activityRule).perform(click());
+        searchOnAllWindows(getViewInteraction(driverName), activityRule).perform(scrollTo(), click());
     }
 
     private ViewInteraction searchOnAllWindows(ViewInteraction viewInteraction, ActivityTestRule<MainActivity> activityRule) {

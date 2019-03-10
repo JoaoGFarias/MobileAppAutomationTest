@@ -3,27 +3,48 @@ jobs:
   build:
     working_directory: ~/code/AndroidDemo
     docker:
-      - image: circleci/android:api-28
-    environment:
-      JVM_OPTS: -Xmx3200m
+      # Pinning to a specifc image version, as [pointed on Circle CI's discussion board.](https://discuss.circleci.com/t/working-android-emulator-based-tests-not-working-anymore/26543/12).
+      # The Debian bug which cause the issue [seems to be fixed.](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=911925#129). 
+      - image: circleci/android@sha256:5cdc8626cc6f13efe5ed982cdcdb432b0472f8740fed8743a6461e025ad6cdfc
     steps:
       - checkout: 
           path: ~/code
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run:
-          name: accept licences
+          name: Accept SDK licences
           command: yes | sdkmanager --licenses || true
+      - run:
+          name: Download dependencies
+          command: ./gradlew androidDependencies
       - save_cache:
           paths:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-          name: Download Dependencies
-          command: ./gradlew androidDependencies
-      - run:
-          name: Run Tests
+          name: Run lint checks
           command: ./gradlew lint test
+      - run:
+          name: Setup emulator
+          command: sdkmanager --list --verbose
+      
+      - run:
+          name: Setup emulator
+          # echo "no" => I don't wish to create a hardware profile
+          command: sdkmanager "system-images;android-24;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-24;default;armeabi-v7a"
+      - run:
+          name: Launch emulator
+          command: export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib && emulator64-arm -avd test -no-boot-anim -no-window -accel auto -verbose
+          background: true
+      - run:
+          name: Wait for boot
+          command: circle-android wait-for-boot
+      - run:
+          name: Unlock emulator screen
+          command: adb shell input keyevent 82
+      - run:
+          name: Run instrumentation checks
+          command: ./gradlew connectedAndroidTest
       - store_artifacts:
           path: app/build/reports
           destination: reports
