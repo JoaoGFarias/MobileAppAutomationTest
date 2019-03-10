@@ -1,5 +1,7 @@
 # MobileAppAutomationTest
 
+[![CircleCI](https://circleci.com/gh/JoaoGFarias/MobileAppAutomationTest/tree/master.svg?style=svg)](https://circleci.com/gh/JoaoGFarias/MobileAppAutomationTest/tree/master)
+
 Dear candidate,
 
 🎈 Welcome to the mobile test challenge.
