@@ -1,5 +1,6 @@
 package com.mytaxi.android_demo;
 
+import android.support.test.espresso.contrib.AccessibilityChecks;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.rule.GrantPermissionRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -7,6 +8,7 @@ import android.support.test.runner.AndroidJUnit4;
 import com.mytaxi.android_demo.activities.MainActivity;
 import com.mytaxi.android_demo.baseTests.AuthenticationActivityTest;
 
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +25,11 @@ public class CallDriverTest extends AuthenticationActivityTest {
 
     private final String username = "crazydog335";
     private final String password = "venture";
+
+    @BeforeClass
+    public static void enableAccessibilityChecks() {
+        AccessibilityChecks.enable().setThrowExceptionForErrors(false);
+    }
 
     @Rule
     public ActivityTestRule<MainActivity> activityRule =
