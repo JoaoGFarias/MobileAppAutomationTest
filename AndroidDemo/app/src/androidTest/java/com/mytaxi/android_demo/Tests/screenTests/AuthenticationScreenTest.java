@@ -6,7 +6,7 @@ import android.support.test.runner.AndroidJUnit4;
 import com.mytaxi.android_demo.R;
 import com.mytaxi.android_demo.activities.AuthenticationActivity;
 import com.mytaxi.android_demo.base.BaseTest;
-import com.mytaxi.android_demo.base.Element;
+import com.mytaxi.android_demo.base.element.Element;
 import com.mytaxi.android_demo.pageObjects.AuthenticationScreen;
 
 import org.junit.Before;
@@ -21,7 +21,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  * Test class to validate the UI and behavior of the Authentication screen
  */
 @RunWith(AndroidJUnit4.class)
-public class AuthenticationScreenTest extends BaseTest {
+public final class AuthenticationScreenTest extends BaseTest {
 
     private AuthenticationScreen authenticationScreen;
 

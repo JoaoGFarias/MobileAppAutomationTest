@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-public class ExampleInstrumentedTest extends BaseTest {
+public final class ExampleInstrumentedTest extends BaseTest {
     @Test
     public void useAppContext() {
         assertEquals("com.mytaxi.android_demo", appContext.getPackageName());

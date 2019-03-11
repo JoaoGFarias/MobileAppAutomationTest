@@ -1,10 +1,10 @@
 package com.mytaxi.android_demo.pageObjects;
 
-import com.mytaxi.android_demo.base.Element;
 import android.support.test.rule.ActivityTestRule;
 
 import com.mytaxi.android_demo.R;
 import com.mytaxi.android_demo.base.BaseScreen;
+import com.mytaxi.android_demo.base.element.Element;
 
 public class AuthenticationScreen extends BaseScreen {
 
@@ -42,5 +42,9 @@ public class AuthenticationScreen extends BaseScreen {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public Boolean isOpen() {
+        return this.getUsernameInput().isVisible();
     }
 }
