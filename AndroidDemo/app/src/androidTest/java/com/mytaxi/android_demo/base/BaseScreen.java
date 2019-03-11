@@ -25,27 +25,31 @@ public class BaseScreen {
         this.activityRule = activityRule;
     }
 
-    protected ViewInteraction getElementById(int id) {
-        return onView(withId(id));
+    protected Element getElementById(int id) {
+        return wrapViewOnElement(onView(withId(id)));
     }
 
-    protected ViewInteraction getElementWithText(String text) {
-        return onView(withText(text));
+    protected Element getElementWithText(String text) {
+        return wrapViewOnElement(onView(withText(text)));
     }
 
-    protected ViewInteraction searchOnOtherWindows(ViewInteraction element) {
+    protected Element searchOnOtherWindows(Element element) {
         return this.searchOnOtherWindows(element, activityRule);
 
     }
 
-    protected ViewInteraction searchOnOtherWindows(ViewInteraction viewInteraction, ActivityTestRule activityRule) {
-        return viewInteraction.inRoot(
+    protected Element searchOnOtherWindows(Element element, ActivityTestRule activityRule) {
+        ViewInteraction view = element.getView().inRoot(
                 withDecorView(
                         not(is(
                                 activityRule.getActivity().getWindow().getDecorView()
                         ))
                 )
         );
+        return wrapViewOnElement(view);
+    }
 
+    private Element wrapViewOnElement(ViewInteraction view) {
+        return new Element(view);
     }
 }

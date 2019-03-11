@@ -1,15 +1,11 @@
 package com.mytaxi.android_demo.pageObjects;
 
-import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 
 import com.mytaxi.android_demo.R;
 import com.mytaxi.android_demo.activities.MainActivity;
 import com.mytaxi.android_demo.base.BaseScreen;
-
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.scrollTo;
-import static android.support.test.espresso.action.ViewActions.typeText;
+import com.mytaxi.android_demo.base.Element;
 
 public class MainScreen extends BaseScreen {
 
@@ -17,19 +13,19 @@ public class MainScreen extends BaseScreen {
         super(activityRule);
     }
 
-    protected ViewInteraction getSearchInput() {
+    protected Element getSearchInput() {
         return getElementById(R.id.textSearch);
     }
 
     public MainScreen searchFor(String searchText) {
         // TODO - Element base class
-        this.getSearchInput().perform(typeText(searchText));
+        this.getSearchInput().type(searchText);
         return this;
     }
 
     public DriverScreen selectDriverNamed(String driverName) {
-        ViewInteraction driverElement = getElementWithText(driverName);
-        searchOnOtherWindows(driverElement).perform(scrollTo(), click());
+        Element driverElement = getElementWithText(driverName);
+        searchOnOtherWindows(driverElement).scrollTo().click();
         return new DriverScreen(this.getActivityRule());
     }
 }
