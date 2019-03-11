@@ -4,7 +4,9 @@ import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 
 import com.mytaxi.android_demo.activities.MainActivity;
-
+import com.mytaxi.android_demo.base.element.DrawerElement;
+import com.mytaxi.android_demo.base.element.Element;
+import com.mytaxi.android_demo.base.element.NavigationElement;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.matcher.RootMatchers.withDecorView;
@@ -13,7 +15,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 
-public class BaseScreen {
+public abstract class BaseScreen {
 
     private final ActivityTestRule activityRule;
 
@@ -23,6 +25,24 @@ public class BaseScreen {
 
     public BaseScreen(ActivityTestRule<MainActivity> activityRule) {
         this.activityRule = activityRule;
+    }
+
+    public abstract Boolean isOpen();
+
+    protected DrawerElement getDrawerById(int id) {
+        return wrapViewOnDrawer(onView(withId(id)));
+    }
+
+    private DrawerElement wrapViewOnDrawer(ViewInteraction view) {
+        return new DrawerElement(view);
+    }
+
+    protected NavigationElement getNavigationById(int id) {
+        return wrapViewOnNavigation(onView(withId(id)));
+    }
+
+    private NavigationElement wrapViewOnNavigation(ViewInteraction view) {
+        return new NavigationElement(view);
     }
 
     protected Element getElementById(int id) {

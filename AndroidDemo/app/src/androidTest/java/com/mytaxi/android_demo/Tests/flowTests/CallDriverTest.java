@@ -2,6 +2,7 @@ package com.mytaxi.android_demo.Tests.flowTests;
 
 import android.support.test.runner.AndroidJUnit4;
 
+import com.mytaxi.android_demo.Tests.utils.LoginCredentials;
 import com.mytaxi.android_demo.base.BaseMainActivityTest;
 import com.mytaxi.android_demo.pageObjects.AuthenticationScreen;
 import com.mytaxi.android_demo.pageObjects.DriverScreen;
@@ -12,13 +13,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * Test class to validate myTaxi driver calling flow
+ * Test class to validate myTaxi driver calling flows
  */
 @RunWith(AndroidJUnit4.class)
-public class CallDriverTest extends BaseMainActivityTest {
+public final class CallDriverTest extends BaseMainActivityTest {
 
-    private final String username = "crazydog335";
-    private final String password = "venture";
     private AuthenticationScreen authenticationScreen;
 
     @Before
@@ -28,8 +27,8 @@ public class CallDriverTest extends BaseMainActivityTest {
 
     @Test
     public void checkCallDriverFlow() {
-
-        MainScreen mainScreen = this.authenticationScreen.login(username, password);
+        MainScreen mainScreen = this.authenticationScreen.login(
+                LoginCredentials.getUsername(), LoginCredentials.getPassword());
 
         DriverScreen driverscreen = mainScreen.searchFor("sa").selectDriverNamed("Sarah Scott");
 
