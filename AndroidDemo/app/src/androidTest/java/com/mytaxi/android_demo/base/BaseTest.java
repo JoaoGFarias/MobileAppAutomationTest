@@ -16,6 +16,8 @@ public class BaseTest {
 
     @BeforeClass
     public static void enableAccessibilityChecks() {
-        AccessibilityChecks.enable().setThrowExceptionForErrors(false);
+        try {
+            AccessibilityChecks.enable().setThrowExceptionForErrors(false);
+        } catch (IllegalStateException e) {}
     }
 }
