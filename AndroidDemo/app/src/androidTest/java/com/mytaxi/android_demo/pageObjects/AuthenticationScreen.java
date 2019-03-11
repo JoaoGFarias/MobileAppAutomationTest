@@ -1,13 +1,10 @@
 package com.mytaxi.android_demo.pageObjects;
 
-import android.support.test.espresso.ViewInteraction;
+import com.mytaxi.android_demo.base.Element;
 import android.support.test.rule.ActivityTestRule;
 
 import com.mytaxi.android_demo.R;
 import com.mytaxi.android_demo.base.BaseScreen;
-
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.action.ViewActions.typeText;
 
 public class AuthenticationScreen extends BaseScreen {
 
@@ -16,23 +13,23 @@ public class AuthenticationScreen extends BaseScreen {
         super(activityRule);
     }
 
-    public ViewInteraction getLoginButton() {
+    public Element getLoginButton() {
         return getElementById(R.id.btn_login);
     }
 
-    public ViewInteraction getUsernameInput() {
+    public Element getUsernameInput() {
         return getElementById(R.id.edt_username);
     }
 
-    public ViewInteraction getPasswordInput() {
+    public Element getPasswordInput() {
         return getElementById(R.id.edt_password);
     }
 
 
     public MainScreen login(String username, String password) {
-        this.getUsernameInput().perform(typeText(username));
-        this.getPasswordInput().perform(typeText(password));
-        this.getLoginButton().perform(click());
+        this.getUsernameInput().type(username);
+        this.getPasswordInput().type(password);
+        this.getLoginButton().click();
         waitLoginProcess();
 
         return new MainScreen(this.getActivityRule());
