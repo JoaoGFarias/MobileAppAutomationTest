@@ -1,16 +1,15 @@
-package com.mytaxi.android_demo.screenTests;
+package com.mytaxi.android_demo.Tests.screenTests;
 
-import android.content.Context;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.ViewInteraction;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.mytaxi.android_demo.R;
-import com.mytaxi.android_demo.activities.AuthenticatedActivity;
 import com.mytaxi.android_demo.activities.AuthenticationActivity;
-import com.mytaxi.android_demo.baseTests.AuthenticationActivityTest;
+import com.mytaxi.android_demo.base.BaseTest;
+import com.mytaxi.android_demo.pageObjects.AuthenticationScreen;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,31 +19,37 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
- * Test class to validate the UI and behavior of the Authetication screen
+ * Test class to validate the UI and behavior of the Authentication screen
  */
 @RunWith(AndroidJUnit4.class)
-public class AuthenticationScreenTest extends AuthenticationActivityTest {
+public class AuthenticationScreenTest extends BaseTest {
 
-    private final Context appContext = InstrumentationRegistry.getTargetContext();
+    private AuthenticationScreen authenticationScreen;
+
     @Rule
-    public ActivityTestRule<AuthenticatedActivity> authenticationScreen = new ActivityTestRule(AuthenticationActivity.class);
+    public ActivityTestRule activityRule = new ActivityTestRule(AuthenticationActivity.class);
+
+    @Before
+    public void authenticationTestSetup() {
+        this.authenticationScreen = new AuthenticationScreen(activityRule);
+    }
 
     @Test
     public void checkLoginButtonText() {
         String expectedLoginButtonText = appContext.getString(R.string.button_login);
-        ViewInteraction loginButton = this.getLoginButton();
+        ViewInteraction loginButton = authenticationScreen.getLoginButton();
         loginButton.check(matches(withText(expectedLoginButtonText)));
     }
 
     @Test
     public void checkUsernameButtonText() {
-        ViewInteraction usernameInput = this.getUsernameInput();
+        ViewInteraction usernameInput = authenticationScreen.getUsernameInput();
         inputValueAndCheckText(usernameInput, "crazydog335");
     }
 
     @Test
     public void checkPasswordButtonText() {
-        ViewInteraction passwordInput = this.getPasswordInput();
+        ViewInteraction passwordInput = authenticationScreen.getPasswordInput();
         inputValueAndCheckText(passwordInput, "123456");
     }
 
