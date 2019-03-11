@@ -1,5 +1,6 @@
 # MobileAppAutomationTest
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/92ace59634244e31b41d89a470e3d2e3)](https://app.codacy.com/app/jgfarias42/MobileAppAutomationTest?utm_source=github.com&utm_medium=referral&utm_content=JoaoGFarias/MobileAppAutomationTest&utm_campaign=Badge_Grade_Settings)
 [![CircleCI](https://circleci.com/gh/JoaoGFarias/MobileAppAutomationTest/tree/master.svg?style=svg)](https://circleci.com/gh/JoaoGFarias/MobileAppAutomationTest/tree/master)
 
 Dear candidate,
