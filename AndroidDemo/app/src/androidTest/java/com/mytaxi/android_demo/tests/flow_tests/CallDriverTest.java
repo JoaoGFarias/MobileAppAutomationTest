@@ -1,8 +1,8 @@
-package com.mytaxi.android_demo.Tests.flowTests;
+package com.mytaxi.android_demo.tests.flow_tests;
 
 import android.support.test.runner.AndroidJUnit4;
 
-import com.mytaxi.android_demo.Tests.utils.LoginCredentials;
+import com.mytaxi.android_demo.tests.utils.LoginCredentials;
 import com.mytaxi.android_demo.base.BaseMainActivityTest;
 import com.mytaxi.android_demo.pageObjects.AuthenticationScreen;
 import com.mytaxi.android_demo.pageObjects.DriverScreen;

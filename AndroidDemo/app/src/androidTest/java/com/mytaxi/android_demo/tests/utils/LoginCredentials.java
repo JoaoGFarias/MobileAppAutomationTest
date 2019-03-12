@@ -1,4 +1,4 @@
-package com.mytaxi.android_demo.Tests.utils;
+package com.mytaxi.android_demo.tests.utils;
 public class LoginCredentials {
 
     private final static String username = "crazydog335";
