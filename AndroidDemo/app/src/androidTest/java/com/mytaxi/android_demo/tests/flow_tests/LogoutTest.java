@@ -1,4 +1,4 @@
-package com.mytaxi.android_demo.Tests.flowTests;
+package com.mytaxi.android_demo.tests.flow_tests;
 
 import android.support.test.runner.AndroidJUnit4;
 

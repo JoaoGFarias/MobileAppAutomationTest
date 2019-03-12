@@ -1,4 +1,4 @@
-package com.mytaxi.android_demo.Tests.screenTests;
+package com.mytaxi.android_demo.tests.screen_tests;
 
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;

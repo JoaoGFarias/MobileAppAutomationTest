@@ -1,4 +1,4 @@
-package com.mytaxi.android_demo.Tests.contextTests;
+package com.mytaxi.android_demo.tests.context_tests;
 
 import android.support.test.runner.AndroidJUnit4;
 
