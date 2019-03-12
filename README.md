@@ -24,3 +24,15 @@ As a talented QA engineer, your task is to write pretty and stable Android UI te
 * QA engineers don't only work with developers, but also closely collaborate with product managers.  It would be great if you have a strong product sense, you're welcome to spot any UX issues in this demo app and write it down.
 
 💪 Roll up your sleeves and have fun 😊
+
+# Results
+
+- [Circle CI configuration](https://github.com/JoaoGFarias/MobileAppAutomationTest/blob/master/.circleci/config.yml)
+- [Espresso tests](https://github.com/JoaoGFarias/MobileAppAutomationTest/tree/master/AndroidDemo/app/src/androidTest/java/com/mytaxi/android_demo)
+    - Search for "sa", selecting second driver and calling
+    - Logout
+    - Inspecting Login screen input text and behavior
+    - Enabling accessibility checks as warnings
+- [Exploraty testing charters, focused on Usability evaluation](https://github.com/JoaoGFarias/MobileAppAutomationTest/tree/master/exploratory_charts)
+- [Code quality flags][https://github.com/JoaoGFarias/MobileAppAutomationTest/blob/master/README.md#mobileappautomationtest]
+- [Automated static analysis with Codacy](https://app.codacy.com/project/jgfarias42/MobileAppAutomationTest/dashboard)
